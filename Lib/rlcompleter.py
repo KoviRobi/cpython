@@ -13,6 +13,15 @@ Tip: to use the tab key as the completion key, call
 
 Notes:
 
+
+- If you get an angry flashing tab complete, which is hard to read, you might
+  also want to do
+
+      readline.parse_and_bind("set colored-stats off")
+
+  The cause of this is that readline uses the `$LS_COLORS` shell variable to
+  highlight files, and most tab completions don't map to existing files.
+
 - Exceptions raised by the completer function are *ignored* (and generally cause
   the completion to fail).  This is a feature -- since readline sets the tty
   device in raw (or cbreak) mode, printing a traceback wouldn't work well
